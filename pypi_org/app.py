@@ -1,19 +1,20 @@
 import flask
 
+from infrastructure.view_modifiers import response
+
 app = flask.Flask(__name__)
 
 
-def mock_sample_data():
-    return [
-        {'name': 'test', 'version': '1.2.3'},
-        {'name': 'test2', 'version': '3.2.1'},
-    ]
-
-
 @app.route('/')
+@response(template_file='home/index.html')
 def index():
-    sample_data = mock_sample_data()
-    return flask.render_template('index.html', data=sample_data)
+    return {}
+
+
+@app.route('/about')
+@response(template_file='home/about.html')
+def about():
+    return {}
 
 
 if __name__ == '__main__':
