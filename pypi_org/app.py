@@ -1,20 +1,12 @@
 import flask
 
-from infrastructure.view_modifiers import response
+from pypi_org.views import home_views
+from pypi_org.views import package_views
+
 
 app = flask.Flask(__name__)
-
-
-@app.route('/')
-@response(template_file='home/index.html')
-def index():
-    return {}
-
-
-@app.route('/about')
-@response(template_file='home/about.html')
-def about():
-    return {}
+app.register_blueprint(home_views.blueprint)
+app.register_blueprint(package_views.blueprint)
 
 
 if __name__ == '__main__':
