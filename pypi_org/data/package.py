@@ -1,6 +1,7 @@
 from datetime import datetime
 import sqlalchemy as sa
 import sqlalchemy.orm as orm
+from typing import List
 
 from pypi_org.data.modelbase import SqlAlchemyBase
 from pypi_org.data.releases import Release
@@ -20,7 +21,7 @@ class Package(SqlAlchemyBase):
     author_email = sa.Column(sa.String, index=True)
     license = sa.Column(sa.String, index=True)
 
-    releases = orm.relation("Release", order_by=[
+    releases: List[Release] = orm.relation("Release", order_by=[
         Release.major_ver.desc(),
         Release.minor_ver.desc(),
         Release.build_ver.desc(),

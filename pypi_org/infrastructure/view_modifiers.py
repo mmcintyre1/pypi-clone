@@ -41,3 +41,5 @@ def response(*, mimetype: str = None, template_file: str = None):
         return view_method
 
     return response_inner
+
+

@@ -4,7 +4,7 @@ import sqlalchemy as sa
 from pypi_org.data.modelbase import SqlAlchemyBase
 
 
-class ProgrammingLanguages(SqlAlchemyBase):
+class ProgrammingLanguage(SqlAlchemyBase):
     __tablename__ = 'languages'
 
     id = sa.Column(sa.String, primary_key=True)
