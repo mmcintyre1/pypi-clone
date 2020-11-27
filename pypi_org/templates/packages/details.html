@@ -1,6 +1,8 @@
 {% extends "shared/_layout.html" %}
 {% block additional_css %}
-  <link rel="stylesheet" href="/static/css/package.css"/>{% endblock %}
+  <link rel="stylesheet" href="/static/css/package.css"/>
+  <link rel="stylesheet" href="/static/css/tooltip.css"/>
+{% endblock %}
 {% block title %}Package Details{% endblock %}
 {% block main_content %}
 
@@ -17,6 +19,11 @@
           <div class="install sub-hero">
             pip install
             {{ package.id }}{% if not is_latest %}<span>=={{ release_version }}</span>{% endif %}
+            <button type="button" class="copy-tooltip copy-tooltip-s" data-clipboard-target="#pip-command"
+                    data-tooltip-label="Copy to clipboard">
+              <i class="fa fa-copy" aria-hidden="true"></i>
+              <span class="sr-only">Copy PIP instructions</span>
+            </button>
           </div>
         </div>
 
