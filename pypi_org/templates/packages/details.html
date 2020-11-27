@@ -2,17 +2,16 @@
 {% block title %}Package Details{% endblock %}
 {% block main_content %}
 
-  {% for p in packages %}
-
-    <div>
-    <span class="title">
-        {{ p.name.upper() }}
-    </span>
-      <span class="version">
-        {{ p.version }}
-    </span>
+  <div class="hero">
+    <div class="hero-inner">
+      <span>{{ package.id }} {{ releases[0].version_text }}</span>
+      <br>
+      <span class="pip-install">pip install {{ package.id }}</span>
     </div>
+  </div>
 
-  {% endfor %}
+  <div class="summary">
+    {{ package.summary }}
+  </div>
 
 {% endblock %}
