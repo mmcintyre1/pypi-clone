@@ -40,16 +40,13 @@ mkdir /apps/logs/pypi/app_log
 cd /apps
 
 # Create a virtual env for the app.
-cd /apps
 python3 -m venv venv
 source /apps/venv/bin/activate
 pip install --upgrade pip setuptools
 pip install --upgrade httpie glances
 pip install --upgrade uwsgi
 
-
 # clone the repo:
-cd /apps
 git clone https://github.com/mmcintyre1/pypi-clone.git pypi_org
 
 # Setup the web app:
